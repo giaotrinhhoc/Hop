@@ -11,7 +11,16 @@ getgenv().Hop = function()
 end
 
 function Check()
-    return game.Workspace._WorldOrigin.Locations:FindFirstChild("Error")
+    for _,Boss in pairs(game.Workspace.Enemies:GetChildren()) do
+        if Boss.Name == "Cursed Captain" or Boss.Name == "Soul Reaper" and DetectingPart(Boss) and Boss.Humanoid.Health > 0 then
+            return Boss
+        end
+    end
+    for _,Boss in pairs(game.ReplicatedStorage:GetChildren()) do
+        if Boss.Name == "Cursed Captain" or Boss.Name == "Soul Reaper" then
+            return Boss
+        end
+    end
 end
 
 spawn(function()

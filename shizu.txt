@@ -1,4 +1,4 @@
-getgenv().Hop = function()
+getgenv().Sword = function()
     local url = 'https://apimakexeter.vercel.app/api/Shizu'
     local chooses
     local foundServers = game:GetService('HttpService'):JSONDecode(game:HttpGet(url))
@@ -10,15 +10,15 @@ getgenv().Hop = function()
     game:GetService("TeleportService"):TeleportToPlaceInstance(4442272183, chooses.jobId, game.Players.LocalPlayer)
 end
 
-function Check()
+function CheckSword()
     return game.Workspace._WorldOrigin.Locations:FindFirstChild("Error")
 end
 
 spawn(function()
     while task.wait(3) do
         pcall(function()
-            if not Check() then
-                return Hop()
+            if not CheckSword() then
+                return Sword()
             end
         end)
     end

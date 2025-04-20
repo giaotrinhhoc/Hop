@@ -1,4 +1,4 @@
-getgenv().Hop = function()
+getgenv().Mirage = function()
     local url = 'https://apimakexeter.vercel.app/api/Mirage'
     local chooses
     local foundServers = game:GetService('HttpService'):JSONDecode(game:HttpGet(url))
@@ -10,15 +10,15 @@ getgenv().Hop = function()
     game:GetService("TeleportService"):TeleportToPlaceInstance(7449423635, chooses.jobId, game.Players.LocalPlayer)
 end
 
-function Check()
-    return game.Workspace._WorldOrigin.Locations:FindFirstChild("Error")
+function CheckIsland()
+    return game.Workspace._WorldOrigin.Locations:FindFirstChild("Mirage Island")
 end
 
 spawn(function()
-    while task.wait(3) do
+    while task.wait(4) do
         pcall(function()
-            if not Check() then
-                return Hop()
+            if not CheckIsland() then
+                return Mirage()
             end
         end)
     end
